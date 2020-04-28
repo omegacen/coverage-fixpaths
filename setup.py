@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="coverage-fixpaths-teake",
-    version="1.0.1",
+    name="coverage-fixpaths",
+    version="1.0.0",
     author="Teake Nutma",
     description="A small CLI tool that automatically fixes paths in Cobertura coverage reports",
     long_description=long_description,

@@ -9,8 +9,9 @@ $ coverage-fixpaths --source /path/to/source/files coverage.xml
 ```
 
 This tries to match the filenames in `coverage.xml` to the actual files in `/path/to/source/files`.
-If they are all present on the file system, `coverage-fixpaths` replaces any common prefix in the coverage
-report with  `/path/to/source/files` (or a subdirectory thereof, if needed).
+Any common prefix in the coverage report is replaced with a subdirectory of `/path/to/source/files`
+that best matches the file structure in `coverage.xml`. Files that do not exist in the source directory
+are removed from the coverage report.
 
 The option `--source` defaults to `.` (i.e. the current working directory).
 
