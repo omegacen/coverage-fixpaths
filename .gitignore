@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Conda env
+.coverage-fixpaths-env/
+
+# IntelliJ project settigns
+.idea
