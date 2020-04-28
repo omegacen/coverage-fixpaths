@@ -5,13 +5,14 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="coverage-fixpaths",
-    version="1.0.0",
+    version="1.0.1",
     author="Teake Nutma",
     description="A small CLI tool that automatically fixes paths in Cobertura coverage reports",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/omegacen/coverage-fixpaths",
     packages=setuptools.find_packages(),
+    license_file='LICENSE',
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
