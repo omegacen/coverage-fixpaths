@@ -45,12 +45,13 @@ def fix_coverage_filenames(coverage_report, source_dir, out_file=None, logger=No
     for source_path in source_paths:
         xml_moved_filenames = {_normjoin(source_path, f) for f in xml_rel_filenames}
         intersection = xml_moved_filenames & source_filenames
-        score_prefix_tuples.append((len(intersection), source_path))
-    best_score, best_prefix = sorted(score_prefix_tuples)[-1]
+        num_missing = len(xml_rel_filenames) - len(intersection)
+        dir_depth = len(_normjoin(source_dir, source_path).split(os.sep))
+        score_prefix_tuples.append((num_missing, dir_depth, source_path))
+    best_missing, _, best_prefix = sorted(score_prefix_tuples)[0]
     logger.info(f"Replacing prefix '{xml_prefix}' with '{best_prefix}'.")
-    num_missing = len(xml_filenames) - best_score
-    if num_missing > 0:
-        logger.warning(f"Removing {num_missing} files from report because they are not in source dir.")
+    if best_missing > 0:
+        logger.warning(f"Removing {best_missing} files from report because they are not in source dir.")
 
     # Update all the filenames in the XML.
     for c in classes:
