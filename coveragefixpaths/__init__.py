@@ -72,7 +72,7 @@ def fix_coverage_filenames(coverage_report, source_dir, out_file=None, logger=No
     for source in sources:
         logger.debug(f"Removing source path {source.text} from report.")
         sources.remove(source)
-    abs_source_path = os.path.abspath(os.path.join(source_dir, best_prefix))
+    abs_source_path = os.path.abspath(source_dir)
     logger.debug(f"Adding source path {abs_source_path} to report.")
     source_element = ElementTree.Element('source')
     source_element.text = abs_source_path
