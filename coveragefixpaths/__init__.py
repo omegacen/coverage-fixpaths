@@ -10,7 +10,10 @@ def fix_coverage_filenames(coverage_report, source_dir, out_file=None, logger=No
     try:
         tree = ElementTree.parse(coverage_report)
     except FileNotFoundError:
-        logger.error(f"Cannot find coverage report {coverage_report}")
+        logger.error(f"Cannot find coverage report {coverage_report}.")
+        return False
+    except IsADirectoryError:
+        logger.error(f"Given coverage report {coverage_report} is a directory.")
         return False
     except ElementTree.ParseError as e:
         logger.error(f"Error parsing coverage report (error code {e.code}).")
