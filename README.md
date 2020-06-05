@@ -21,3 +21,7 @@ The option `--source` defaults to `.` (i.e. the current working directory).
 ```
 pip install coverage-fixpaths
 ```
+or
+```
+conda install -c conda-forge coverage-fixpaths
+```
