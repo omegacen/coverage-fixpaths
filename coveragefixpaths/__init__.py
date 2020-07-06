@@ -69,7 +69,7 @@ def fix_coverage_filenames(coverage_report, source_dir, out_file=None, logger=No
 
     # Lastly, update the <sources> tag.
     sources = root.find('./sources')
-    for source in sources:
+    for source in list(iter(sources)):
         logger.debug(f"Removing source path {source.text} from report.")
         sources.remove(source)
     abs_source_path = os.path.abspath(source_dir)
