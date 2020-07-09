@@ -1,17 +1,18 @@
 import argparse
 import logging
 
-from . import fix_coverage_filenames
+from . import fix_coverage_filenames, CoverageFixPathsError
 
 
 def main():
     args = _arguments()
     logger = _get_logger(args.loglevel)
-    all_ok = fix_coverage_filenames(args.report, args.source, out_file=args.out, logger=logger)
-    if all_ok:
-        exit(0)
-    else:
+    try:
+        fix_coverage_filenames(args.report, args.source, out_file=args.out, logger=logger)
+    except CoverageFixPathsError as e:
+        logger.error(e)
         exit(1)
+    exit(0)
 
 
 def _arguments():

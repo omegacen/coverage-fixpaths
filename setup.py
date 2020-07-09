@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="coverage-fixpaths",
-    version="1.0.3",
+    version="1.1.0",
     author="Teake Nutma",
     description="A small CLI tool that automatically fixes paths in Cobertura coverage reports",
     long_description=long_description,
